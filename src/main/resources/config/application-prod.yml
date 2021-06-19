@@ -1,5 +1,21 @@
 
 
 
+
 server:
   port: 8089
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: testoffertdbprod
+      username: root
+      password: root
+      auto-index-creation: true
+      authentication-database: admin
