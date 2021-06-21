@@ -1,0 +1,16 @@
+
+
+
+spring:
+  application:
+    name: testoffert
+
+  data:
+    mongodb:
+      host: localhost
+      port: 0
+      database: testofferttest
+
+server:
+  port: 10344
+  address: localhost

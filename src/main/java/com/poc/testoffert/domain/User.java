@@ -1,7 +1,6 @@
 package com.poc.testoffert.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -15,7 +14,6 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import java.time.Instant;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -50,11 +48,6 @@ public class User {
     @Field("language_code")
     private String languageCode;
 
-    @JsonIgnore
-    @NotNull
-    @Size(min = 60, max = 60)
-    private String password;
-
     @Size(max = 50)
     @Field("first_name")
     private String firstName;
@@ -70,8 +63,8 @@ public class User {
     @Field("registration_date")
     private Instant registrationDate;
 
-    @Field("birth_date")
-    private Date birthDate;
+    @Field("age")
+    private Integer age;
 
     private boolean enabled;
 
@@ -113,14 +106,6 @@ public class User {
         this.languageCode = languageCode;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -153,12 +138,12 @@ public class User {
         this.registrationDate = registrationDate;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public boolean isEnabled() {
@@ -205,12 +190,11 @@ public class User {
                 ", login='" + login + '\'' +
                 ", email='" + email + '\'' +
                 ", languageCode='" + languageCode + '\'' +
-                ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", registrationDate=" + registrationDate +
-                ", birthDate=" + birthDate +
+                ", birthDate=" + age +
                 ", enabled=" + enabled +
                 '}';
     }

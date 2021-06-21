@@ -14,7 +14,7 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: testoffertdbdevs
+      database: testoffertdbdev
       username: root
       password: root
       auto-index-creation: true
