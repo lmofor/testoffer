@@ -195,7 +195,7 @@ public class UserResourceIntegrationTest {
         user.setEmail("teste@tes.fr");
         user.setCountry("France");
         user.setAge(38);
-        Instant i = Instant.now().;
+        Instant i = Instant.now();
         user.setRegistrationDate(i);
         user.setEnabled(true);
         user.setFullName("Teste Ter");
