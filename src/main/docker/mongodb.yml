@@ -1,0 +1,7 @@
+version: '2'
+services:
+  testtoffer-mongodb:
+    image: mongo:4.2.7
+    privileged: true
+    ports:
+      - 27018:27017

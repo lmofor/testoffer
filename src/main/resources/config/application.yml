@@ -11,7 +11,17 @@ spring:
     # Either way, it can be overridden by `--spring.profiles.active` value passed in the commandline or `-Dspring.profiles.active` set in `JAVA_OPTS`
     active: #spring.profiles.active#
 
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+    #packages-to-scan: com.poc.testoffert.web.rest
+    #paths-to-match: /v1, /api/**
+
 mongock:
+  mongo-db:
+    write-concern:
+      journal: false
+    read-concern: local
   change-logs-scan-package:
     - com.poc.testoffert.config.dbinitialization
 
