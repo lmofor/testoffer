@@ -1,6 +1,11 @@
 
 
-
+logging:
+  level:
+    ROOT: DEBUG
+    com.poc.testoffert: DEBUG
+    org.mongodb: INFO
+    io.undertow: INFO
 
 server:
   port: 8089
@@ -9,6 +14,7 @@ spring:
   config:
     activate:
       on-profile: dev
+
 
   data:
     mongodb:
@@ -19,3 +25,4 @@ spring:
       password: root
       auto-index-creation: true
       authentication-database: admin
+

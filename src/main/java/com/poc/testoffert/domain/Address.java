@@ -3,9 +3,9 @@ package com.poc.testoffert.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-import org.wildfly.common.annotation.NotNull;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
@@ -14,7 +14,7 @@ import java.util.Objects;
  * An adress (a user can have many addresses)
  */
 @Document(collection = "adresses")
-public class Adress {
+public class Address {
 
     private static final long serialVersionUID = 1L;
 
@@ -34,6 +34,9 @@ public class Adress {
     @Size(min = 3, max = 100)
     @Field("town")
     private String town;
+
+    public Address() {
+    }
 
     public String getId() {
         return id;
@@ -71,8 +74,8 @@ public class Adress {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Adress adress = (Adress) o;
-        return id.equals(adress.id);
+        Address address = (Address) o;
+        return id != null && id.equals(address.id);
     }
 
     @Override
@@ -82,7 +85,7 @@ public class Adress {
 
     @Override
     public String toString() {
-        return "Adress{" +
+        return "Address{" +
                 "id='" + id + '\'' +
                 ", phone='" + phone + '\'' +
                 ", street='" + street + '\'' +

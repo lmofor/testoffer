@@ -3,14 +3,23 @@
 
 spring:
   application:
-    name: testoffert
+    name: testoffertest
 
   data:
     mongodb:
       host: localhost
       port: 0
       database: testofferttest
+  main:
+    allow-bean-definition-overriding: true
 
+mongock:
+  mongo-db:
+    write-concern:
+      journal: false
+    read-concern: local
+  change-logs-scan-package:
+    - com.poc.testoffert.config.dbinitialization
 server:
   port: 10344
   address: localhost

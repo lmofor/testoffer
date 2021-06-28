@@ -4,9 +4,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.wildfly.common.annotation.NotNull;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
@@ -22,9 +22,12 @@ public class Role {
     private String id;
 
     @Indexed(unique = true, direction = IndexDirection.DESCENDING)
-    @NotNull
-    @NotBlank
+    @NotNull(message = "role should not be null !")
+    @NotBlank(message = "role should not be blank !")
     private String role;
+
+    public Role() {
+    }
 
     public String getId() {
         return id;
@@ -47,11 +50,19 @@ public class Role {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Role role1 = (Role) o;
-        return role.equals(role1.role);
+        return id != null && (role.equals(role1.role) || id.equals(role1.id));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(role);
+        return Objects.hash(role,id);
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id='" + id + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
