@@ -43,6 +43,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class UserResourceIntegrationTest {
 
+    private static final Instant REGISTRATION_DATE = Instant.parse("2021-06-29T10:11:30Z");
+
     @Autowired
     private UserRepository userRepository;
 
@@ -89,8 +91,7 @@ public class UserResourceIntegrationTest {
         user.setEmail("teste@tes.fr");
         user.setCountry("France");
         user.setAge(38);
-        Instant i = Instant.now();
-        user.setRegistrationDate(i);
+        user.setRegistrationDate(REGISTRATION_DATE);
         user.setEnabled(true);
         user.setFullName("Teste Ter");
 
@@ -123,8 +124,7 @@ public class UserResourceIntegrationTest {
         user.setEmail("teste@tes.fr");
         user.setCountry("France");
         user.setAge(38);
-        Instant i = Instant.now();
-        user.setRegistrationDate(i);
+        user.setRegistrationDate(REGISTRATION_DATE);
         user.setEnabled(true);
         user.setFullName("Teste Ter");
 
@@ -152,8 +152,7 @@ public class UserResourceIntegrationTest {
         user.setEmail("teste@tes.fr");
         user.setCountry("Senegal");
         user.setAge(12);
-        Instant i = Instant.now();
-        user.setRegistrationDate(i);
+        user.setRegistrationDate(REGISTRATION_DATE);
         user.setEnabled(true);
         user.setFullName("Teste Ter");
 
@@ -195,8 +194,7 @@ public class UserResourceIntegrationTest {
         user.setEmail("teste@tes.fr");
         user.setCountry("France");
         user.setAge(38);
-        Instant i = Instant.now();
-        user.setRegistrationDate(i);
+        user.setRegistrationDate(REGISTRATION_DATE);
         user.setEnabled(true);
         user.setFullName("Teste Ter");
         user.setRoles(roles);
@@ -214,7 +212,7 @@ public class UserResourceIntegrationTest {
                 .andExpect(jsonPath("$.age").value(38))
                 .andExpect(jsonPath("$.languageCode").value("fr"))
                 .andExpect(jsonPath("$.enabled").value(true))
-                .andExpect(jsonPath("$.registrationDate").value(i.toString()))
+                .andExpect(jsonPath("$.registrationDate").value(REGISTRATION_DATE.toString()))
                 .andExpect(jsonPath("$.email").value("teste@tes.fr"))
                 .andExpect(jsonPath("$.country").value("France"))
                 .andExpect(jsonPath("$.roles.[0]").value(role))
@@ -253,8 +251,7 @@ public class UserResourceIntegrationTest {
         user.setEmail("tester@tes.fr");
         user.setCountry("France");
         user.setAge(34);
-        Instant i = Instant.now();
-        user.setRegistrationDate(i);
+        user.setRegistrationDate(REGISTRATION_DATE);
         user.setEnabled(true);
         user.setFullName("Testera Tera");
         user.setRoles(roles);
@@ -271,7 +268,7 @@ public class UserResourceIntegrationTest {
                 .andExpect(jsonPath("$.fullName").value("Testera Tera"))
                 .andExpect(jsonPath("$.age").value(34))
                 .andExpect(jsonPath("$.enabled").value(true))
-                .andExpect(jsonPath("$.registrationDate").value(i.toString()))
+                .andExpect(jsonPath("$.registrationDate").value(REGISTRATION_DATE.toString()))
                 .andExpect(jsonPath("$.email").value("tester@tes.fr"))
                 .andExpect(jsonPath("$.country").value("France"))
                 .andExpect(jsonPath("$.roles[0]").value(role))
