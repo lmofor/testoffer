@@ -36,10 +36,19 @@ public class UserTest {
         user2.setAge(user1.getAge());
         user2.setRegistrationDate(user1.getRegistrationDate());
         assertThat(user1).isEqualTo(user2);
-        user2.setId("user-2");
+        user2.setId(null);
+        assertThat(user1).isEqualTo(user2);
+        user2.setLogin(null);
+        assertThat(user1).isEqualTo(user2);
+        user2.setEmail(null);
+        assertThat(user1).isNotEqualTo(user2);
         user2.setLogin("user-2");
+        assertThat(user1).isNotEqualTo(user2);
         user2.setEmail("user2dfsf@dfdsf.jt");
         assertThat(user1).isNotEqualTo(user2);
+        user2.setId("user-2");
+        assertThat(user1).isNotEqualTo(user2);
+        assertThat(user1).isNotEqualTo(null);
         user1.setId(null);
         assertThat(user1).isNotEqualTo(user2);
     }

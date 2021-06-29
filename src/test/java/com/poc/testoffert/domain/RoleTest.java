@@ -19,8 +19,11 @@ public class RoleTest {
         role2.setRole(role1.getRole());
         assertThat(role1).isEqualTo(role2);
         role2.setId("role-2");
+        assertThat(role1).isEqualTo(role2);
         role2.setRole("developpeur");
         assertThat(role1).isNotEqualTo(role2);
+        assertThat(role1).isNotEqualTo(null);
+        assertThat(role1).isNotEqualTo(new Object());
         role1.setId(null);
         assertThat(role1).isNotEqualTo(role2);
     }
