@@ -24,7 +24,7 @@
         <swagger.version>3.0.0</swagger.version>
         <openapiui.version>1.5.9</openapiui.version>
         <mongock.version>4.3.8</mongock.version>
-        <sonar-maven-plugin.version>3.9.0.2155</sonar-maven-plugin.version>
+        <sonar-maven-plugin.version>3.7.0.1746</sonar-maven-plugin.version>
         <sonar.projectKey>lmofor_testoffer</sonar.projectKey>
         <sonar.organization>lmofor</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
