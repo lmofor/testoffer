@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.validation.constraints.*;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Objects;
@@ -23,7 +24,7 @@ import com.poc.testoffert.config.Constants;
  */
 
 @Document(collection = "user")
-public class User {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
